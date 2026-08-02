@@ -19,28 +19,42 @@ bash reproduce.sh features-single
 bash reproduce.sh features-dyadic
 ```
 
-## Companion data release
+## Companion paper-fit archive
 
-The companion Zenodo record contains:
+The initial-submission companion archive is:
 
-| Bundle | Contents |
+| File | Contents |
 | --- | --- |
-| `derived` | Published dLDS dictionaries, per-session coefficients and the 30 small LOSO fold dictionaries |
-| `features` | Published FEATURE16 and FEATURE27 matrices |
-| `moseq` | Published keypoint-MoSeq `results.h5` files |
-| `keypoints` | Cleaned CalMS21 keypoints used by plotted trajectories |
+| `dlds_derived_models.tar.zst` | Published dLDS dictionaries, 69 dyadic and 5 single-mouse coefficient arrays, fit records, and the 30 LOSO fold dictionaries |
+
+Download:
+[Google Drive](https://drive.google.com/file/d/1wBcfj0d4gs-eSbJVkumU--NDH6VPbbH8/view?usp=drive_link)
+
+SHA-256:
+
+```text
+bd38eac427d81e071b556a5680d80ad2a1668699751d4c74dcb459ef439bea1d
+```
+
+Extract the archive into the configured `data_root`:
 
 ```bash
-bash features/fetch_derived_bundle.sh all
+tar --zstd -xf dlds_derived_models.tar.zst \
+  -C /path/to/social-dlds-data
 ```
 
 The compact keypoint-MoSeq AR dictionary used by Figure 1c ships in
 `derived/single_mouse/kpmoseq_single_Ab.npy`; the 1.86 GB training checkpoint is
 not required.
 
-Before publication, set the Zenodo record ID in
-`features/fetch_derived_bundle.sh` and add its DOI to the manuscript Data
-Availability statement.
+The archive contains author-generated model outputs, not copies of the public
+source datasets. FEATURE16 and FEATURE27 can be rebuilt with the commands above.
+The permanent release will use a versioned Zenodo record; the corresponding
+download script accepts its record ID through `SOCIAL_DLDS_ZENODO_RECORD`.
+
+The source records do not currently state a redistribution licence for their
+coordinate data. Their raw data, repackaged feature matrices and cleaned
+keypoints are therefore not included in this public archive.
 
 ## Local paths
 

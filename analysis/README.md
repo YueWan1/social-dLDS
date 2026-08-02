@@ -45,8 +45,7 @@ sessions. Session 36 is shorter than the fitting snippet length and has no
 `cs_mouse036.npy`.
 
 Behavior labels are `0/1/2/3 = attack/investigation/mount/other`. FEATURE27
-uses the blocks `SELF = 0:14`, `DIST = 14:25`, and `DIRC = 25:27`. Some scripts
-retain the older names `A`, `B`, and `C` for these blocks.
+uses the blocks `SELF = 0:14`, `DIST = 14:25`, and `DIRC = 25:27`.
 
 Unless a script states otherwise, an operator is active when `|c| > 0.05`.
 The geometry-gating analysis uses the stricter condition `c_4 = 0`.

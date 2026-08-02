@@ -135,6 +135,6 @@ if [ ${#failed[@]} -eq 0 ]; then
 else
     echo "${#failed[@]} failed:"
     printf '  %s\n' "${failed[@]}"
-    echo "A missing input is the usual cause; docs/FIGURE_INDEX.md lists panel inputs."
+    echo "A missing input is the usual cause; run 'bash reproduce.sh check' and see docs/FIGURE_INDEX.md."
     exit 1
 fi

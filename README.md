@@ -25,6 +25,7 @@ source .venv/bin/activate
 python -m pip install -e .
 cp paths.example.yml paths.yml
 # edit paths.yml
+bash reproduce.sh check
 ```
 
 ## 1. Build features from the public datasets
@@ -62,13 +63,22 @@ This command runs one seed for one session and writes `Fs.npy`, `cs.npy` and
 fit/inference run. See
 [`julia/README.md`](julia/README.md).
 
-## 3. Recompute the analyses and paper figures
+## 3. Recompute the analyses and paper data panels
 
-Download the deposited paper fits and supporting files, then run:
+Download `dlds_derived_models.tar.zst` from the companion link in
+[`docs/DATA_AVAILABILITY.md`](docs/DATA_AVAILABILITY.md), then extract it into
+the configured `data_root`:
+
+```bash
+tar --zstd -xf /path/to/dlds_derived_models.tar.zst \
+  -C /path/to/social-dlds-data
+```
+
+Feature matrices can instead be rebuilt from the two public source datasets
+with the commands in step 1. After the required inputs are present, run:
 
 ```bash
 python -m pip install -e '.[moseq]'  # required by three MoSeq panels
-bash features/fetch_derived_bundle.sh all
 bash reproduce.sh analysis
 bash reproduce.sh figures
 ```
@@ -76,6 +86,10 @@ bash reproduce.sh figures
 Analyses and figures are written under `out/`; tracked values in `derived/`
 remain unchanged. See the [`analysis index`](analysis/README.md) and
 [`figure index`](docs/FIGURE_INDEX.md).
+
+`features/fetch_derived_bundle.sh` is the versioned-download route for the
+permanent Zenodo release. It requires `SOCIAL_DLDS_ZENODO_RECORD` until the
+record DOI is added.
 
 ## Layout
 

@@ -10,8 +10,9 @@
 
 set -euo pipefail
 
-# Companion Zenodo record ID
-ZENODO_RECORD="${DLDS_ZENODO_RECORD:-}"
+# Companion Zenodo record ID. The legacy name remains accepted so an existing
+# local command does not break during the project-name transition.
+ZENODO_RECORD="${SOCIAL_DLDS_ZENODO_RECORD:-${DLDS_ZENODO_RECORD:-}}"
 
 BUNDLE="${1:-}"
 shift || true
@@ -55,9 +56,9 @@ DEST="$(resolve_dest)"
 if [ -z "$ZENODO_RECORD" ]; then
     cat >&2 <<EOF
 No companion Zenodo record is configured.
-Set ZENODO_RECORD in this script or run:
+Run:
 
-  DLDS_ZENODO_RECORD=<id> bash features/fetch_derived_bundle.sh $BUNDLE
+  SOCIAL_DLDS_ZENODO_RECORD=<id> bash features/fetch_derived_bundle.sh $BUNDLE
 EOF
     exit 1
 fi

@@ -44,17 +44,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 -------------------------------------------------------------------------------
-  derived/ and the Zenodo deposit     Creative Commons Attribution 4.0
+  author-generated model artifacts   Creative Commons Attribution 4.0
 -------------------------------------------------------------------------------
 
 Data artifacts are under CC-BY-4.0: https://creativecommons.org/licenses/by/4.0/
 
 That covers the fitted operator dictionaries and the small tables in derived/,
-and the four bundles of the Zenodo deposit.
+as well as the fitted dictionaries, coefficient arrays and fit records in the
+companion model-output archive.
 
-One thing it does not settle. The dyadic feature matrices and the cleaned
-keypoints are derived from CalMS21 (CaltechDATA 10.22002/D1.1991), and the
-single-mouse features from the keypoint-MoSeq open-field dataset (Zenodo
-15171335). Redistributing a derivative of someone else's dataset is governed by
-that dataset's terms, not by ours. Confirm both before the deposit is published;
-see docs/DATA_AVAILABILITY.md.
+This licence does not cover the two public source datasets or repackaged
+coordinate data derived from them. The release therefore directs users to the
+CalMS21 record (CaltechDATA 10.22002/D1.1991) and the keypoint-MoSeq open-field
+record (Zenodo 15171335) rather than redistributing those files. See
+docs/DATA_AVAILABILITY.md.

@@ -47,8 +47,8 @@ EXCLUDED = [7, 8, 10]                                 # engaged but not interpre
 KEPT = SUBSTRATE + GEOMETRY + SOCIAL
 
 # Block pair(s) on which the main text actually reads each operator.  For f_4 this
-# is NOT its dominant pair: f_4's largest pi is C<-C (0.301) but the distance
-# read-out is taken on B<-B (0.237).  Marking both keeps the figure honest.
+# is NOT its dominant pair: f_4's largest pi is DIRC<-DIRC (0.301), but the
+# distance read-out is taken on DIST<-DIST (0.237).
 READOUT_BLOCKS = {
     2: ["A←A"], 3: ["A←A"], 6: ["A←A"],
     4: ["B←B"], 11: ["C←B"],
@@ -196,7 +196,7 @@ def panel_b(ax, F):
 
 # Panel c: screening statistics.
 def _compass(ax, m, dat, col, label):
-    """Predicted C<-B axis vs measured mean partner bearing, on a compass.
+    """Predicted DIRC<-DIST axis vs measured partner bearing, on a compass.
 
     u_1 is an AXIS, not a vector: its sign is arbitrary, so it is drawn as a full
     line through the origin and the error is the axial one, min(|d|, 180-|d|).
@@ -335,7 +335,7 @@ def main():
     print("\n--- panel b (dominant pair) ---")
     for r, m in enumerate(rows):
         j = int(np.argmax(prof[r]))
-        lbl = f"{PAIRS[j][0]}<-{PAIRS[j][1]}"
+        lbl = f"{DISP[PAIRS[j][0]]}<-{DISP[PAIRS[j][1]]}"
         print(f"  f_{m:<3} {lbl:>5}  pi={prof[r][j]:.6f}  {FAMILY_OF[m]}")
 
 

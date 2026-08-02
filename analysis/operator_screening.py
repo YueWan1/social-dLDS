@@ -237,7 +237,7 @@ say(f'sessions: {len(sessions)}')
 say('')
 
 say('(1) DIST read-out  [V1 correlation]')
-say('    v_1 = leading eigenvector of the operator\'s f_m[B,B]')
+say('    v_1 = leading eigenvector of the operator\'s DIST<-DIST block')
 say(f'{"op":>5} {"n_sess":>7} {"n_const":>8} {"median r":>10} {"mean r":>8} '
     f'{"min r":>8} {"max r":>8} {"r_pool":>9} {"#r>0.5":>8} {"lam1":>9}')
 for op in ['f4', 'f7']:
@@ -252,8 +252,8 @@ for op in ['f4', 'f7']:
         f'{d["r_pool"]:>+9.6f} {d["n_gt05"]:>4d}/{d["n_sess"]:<3d} {d["lam1_re"]:>+9.4f}')
 say('')
 
-say('(2) DIRC read-out  [V2 frame-level, C<-B]')
-say('    u_1,v_1 = the operator\'s C<-B leading singular vectors')
+say('(2) DIRC read-out  [V2 frame-level, DIRC<-DIST]')
+say('    u_1,v_1 = the operator\'s DIRC<-DIST leading singular vectors')
 say(f'{"op":>5} {"sig1":>7} {"eta1":>7} {"angU1":>8} {"n_sess":>7} {"median r":>10} '
     f'{"mean r":>8} {"min r":>8} {"#r>0.5":>8} {"r_pool":>9} {"null mu":>9} '
     f'{"null sd":>8} {"z":>9}')

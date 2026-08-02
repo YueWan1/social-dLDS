@@ -26,17 +26,22 @@ configure_matplotlib() {
     mkdir -p "$MPLCONFIGDIR"
 }
 
-optional_available() {
-    "$PYTHON" scripts/check_optional_input.py "$1" >/dev/null 2>&1
-}
-
 run_optional() {
     local artifact="$1"
     shift
-    if optional_available "$artifact"; then
+    local output
+    local status
+    if output="$("$PYTHON" scripts/check_optional_input.py "$artifact" 2>&1)"; then
         "$PYTHON" "$@"
     else
-        echo "--- SKIP $1 (optional artifact '$artifact' is not distributed; see docs/DATA_AVAILABILITY.md)"
+        status=$?
+        if [ "$status" -eq 1 ]; then
+            echo "--- SKIP $1 (optional artifact '$artifact' is not distributed; see docs/DATA_AVAILABILITY.md)"
+        else
+            echo "invalid optional-artifact guard for $1" >&2
+            [ -z "$output" ] || printf '  %s\n' "$output" >&2
+            return "$status"
+        fi
     fi
 }
 

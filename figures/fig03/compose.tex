@@ -13,12 +13,13 @@
 %       -output-directory=out/fig03 figures/fig03/compose.tex
 % -> out/fig03/fig03_compose.pdf
 %
-% The path assumes the default out_root (<repo>/out).  If paths.yml
-% redirects out_root elsewhere, point \graphicspath at that directory's fig03/.
+% run_figures.sh supplies \PanelRoot from the configured out_root. Direct
+% pdflatex use falls back to <repo>/out/fig03/.
 \documentclass[border=0pt]{standalone}
 \usepackage{graphicx}
 \usepackage{tikz}
-\graphicspath{{out/fig03/}}
+\providecommand{\PanelRoot}{out/fig03/}
+\graphicspath{{\PanelRoot}}
 
 \begin{document}
 \begin{tikzpicture}[x=1in,y=1in]

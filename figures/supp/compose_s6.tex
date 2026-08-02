@@ -4,7 +4,7 @@
 % (it is the current published main Fig 5a, unchanged).  Panels b-d are the
 % existing supplementary validation rows, renumbered to follow it.
 %
-% The three data panels are written directly to out/supp/ by
+% The three data panels are written to <out_root>/supp/ by
 % figures/supp/s6_pose_readout.py and
 % figures/supp/s6_geometry_readout.py.
 %
@@ -15,13 +15,14 @@
 %       -output-directory=out/supp figures/supp/compose_s6.tex
 % -> out/supp/SUPP_dyadic_readout_v2.pdf
 %
-% The second search path keeps the older habit of compiling from inside the
-% directory that holds the panels working.
+% run_figures.sh supplies \PanelRoot from the configured out_root. Direct
+% pdflatex use falls back to <repo>/out/supp/.
 \documentclass[border=0pt]{standalone}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{helvet}
-\graphicspath{{out/supp/}{./}}
+\providecommand{\PanelRoot}{out/supp/}
+\graphicspath{{\PanelRoot}{./}}
 \renewcommand{\familydefault}{\sfdefault}
 
 \begin{document}

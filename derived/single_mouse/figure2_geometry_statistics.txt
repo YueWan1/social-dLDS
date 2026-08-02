@@ -1,0 +1,10 @@
+Figure 2 single-mouse geometry component export
+fit: M15_l1_0.65_smooth_0.3_Flr_2.0_FlrDecay_0.996_decorr_0.16_D16_iter300_snips300
+phase threshold: |c| > 0.05
+circular-shift replicates: 1000
+maximum displayed active frames per operator: 2200
+
+operator	positive_active_fraction	negative_active_fraction	d_pred_plane_1	d_pred_plane_2	d_pred_norm	d_emp_plane_1	d_emp_plane_2	d_emp_norm	angle_deg	in_plane_fraction	corr_abs_c_abs_d	abs_cos	p
+op14	1.000000	0.000000	1.000000	0.000000	1.000000	0.009639	0.000002	0.010074	16.904208	0.956792	-0.356805	n/a	n/a
+op2	0.496386	0.503614	0.796811	0.604229	1.000000	0.465925	0.375991	0.602816	6.908650	0.993192	0.885622	0.992739	0.000000
+op6	0.330768	0.669232	0.846839	0.531850	1.000000	0.453679	0.309717	0.551910	5.971119	0.995301	0.753539	0.994574	0.000000

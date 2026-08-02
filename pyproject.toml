@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "social-dlds"
+version = "0.1.0"
+description = "Code accompanying: Decomposed Linear Dynamical Systems reveal interpretable temporal structure in mouse social behavior"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "pandas>=2.1",
+    "matplotlib>=3.8",
+    "scikit-learn>=1.3",
+    "h5py>=3.10",
+    "tables>=3.9",       # pandas.read_hdf on the DeepLabCut .h5 files; failure without it is obscure
+    "seaborn>=0.13",     # Figure 3 hero panels and two dyadic read-off panels
+    "opencv-python>=4.8",# clip decoding: Figure 1a filmstrip and the keypoint-MoSeq clip helper
+    "Pillow>=10.0",      # raster filmstrip and panel composition
+]
+
+[project.optional-dependencies]
+# Three figure panels read keypoint-MoSeq outputs. Keep this optional because
+# the dependency stack is large; the released figure workflow only needs CPU.
+moseq = [
+    "jax==0.6.2",
+    "keypoint-moseq @ git+https://github.com/dattalab/keypoint-moseq@3f030754868696c43c61a01ac997b3109fc58bf4",
+    "jax-moseq @ git+https://github.com/dattalab/jax-moseq@bad84c505077db00a2e8dbaf38c43a5549c39c69",
+]
+
+[tool.setuptools]
+packages = ["dlds_release"]

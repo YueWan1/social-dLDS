@@ -1,0 +1,21 @@
+# Paths in this record were relativised to <data_root> for release;
+# nothing else was altered. This file is the provenance record of the
+# published fit and is what attests its hyperparameters.
+feature_kind            = FEATURE16_kpmoseq
+feature_input_dir       = <data_root>/dLDS/results/feature_inputs_kpmoseq
+sessions                = 21_12_10_def6b_3, 21_12_2_def6a_1, 21_12_2_def6b_2, 22_04_26_cage4_0, 22_04_26_cage4_1_1
+D                       = 16
+num_motifs              = 15
+l1                      = 0.65
+smooth_c                = 0.3
+F_lr_init               = 2.0
+F_lr_decay              = 0.996
+F_decorr                = 0.16
+max_iter                = 300
+num_snips               = 300
+early_stop_dF_thresh    = 3.5
+early_stop_recon_thresh = 1.0
+early_stop_patience     = 10
+num_workers             = 12
+retry_on_nonfinite      = true
+retry_lrs               = 0.2, 0.1, 0.05

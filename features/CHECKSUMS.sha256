@@ -1,0 +1,37 @@
+# SHA-256 checksums for public files verified during release preparation.
+# Paths are relative to `raw_data_root` in paths.yml. Check them with:
+#
+#     cd "$(sed -n 's/^raw_data_root: *//p' paths.yml)"
+#     sha256sum -c /path/to/social-dLDS/features/CHECKSUMS.sha256
+#
+# The fetch scripts also verify downloads against the MD5 values published by
+# Zenodo and CaltechDATA.
+
+# Verified files
+# keypoint-MoSeq open-field 2D, Zenodo record 15171335, CC-BY-4.0.
+# Published MD5: 0fb2ba20715ea0804f75a75ec4c36168.
+78957e02a67f3572dbe252eae363efe5225c4e1470096cc271647ee31d5f493e  keypoint_moseq_zenodo_15171335/open_field_2D.zip
+
+# CalMS21 documentation and converter, CaltechDATA record s0vdx-0k302,
+# CC-BY-4.0. Their MD5 values match the published record.
+e2d2c7945a92579a8efeeb6b4a2eddf87de31567cc5c62a2b781f813fad2b56d  calms21/readme.md
+3f85379b2a67fdea5403b9e37342513bb05ed0f3858ee8b36bc74bd72db9267e  calms21/calms21_convert_to_npy.py
+
+# Files verified by the fetch script but not pinned here by SHA-256
+# CalMS21 keypoints and annotations. Published MD5:
+#   8a02654fddae28614ee24a6a082261b8  task1_classic_classification.zip  (457,357,950 B)
+
+# CalMS21 videos, needed only for frame-overlay panels. Published MD5:
+#   790b2ff6054c0889c3b0112b3a12eacc  task1_videos_mp4.zip  (28,286,565,405 B)
+
+# To record local SHA-256 values after downloading:
+#
+#     cd "$RAW_ROOT"
+#     sha256sum keypoint_moseq_zenodo_15171335/open_field_2D.zip \
+#               calms21/readme.md \
+#               calms21/calms21_convert_to_npy.py \
+#               calms21/task1_classic_classification.zip \
+#               calms21/task1_videos_mp4.zip
+#
+# Confirm the published MD5 before adding a SHA-256 value. Derived Zenodo
+# bundles are omitted because their checksums are managed with the deposit.

@@ -1,0 +1,61 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the paper."
+title: "social-dLDS: decomposed linear dynamical systems for mouse social behavior"
+abstract: >-
+  Code accompanying a study that represents mouse action-generating dynamics as a
+  signed, graded mixture of shared linear operators acting on kinematic features,
+  and compares that representation against keypoint-MoSeq syllables on
+  single-mouse and dyadic datasets.
+type: software
+
+# `license` below records the licence of the repository as a whole, which CFF
+# expects as a single value. It is not the whole story: julia/ is GPL-3.0-or-later
+# because it derives from Sai Koukuntla's DLDS package, and the data artifacts are
+# CC-BY-4.0. See LICENSE.
+
+authors:
+  - family-names: Wan
+    given-names: Yue
+    email: ywan23@jh.edu
+    affiliation: "Biomedical Engineering Department, Johns Hopkins University"
+    orcid: "https://orcid.org/0009-0006-1144-0417"
+  - family-names: Aoi
+    given-names: Mikio
+    email: maoi@ucsd.edu
+    affiliation: "Halicioglu Data Science Institute, University of California San Diego"
+  - family-names: Charles
+    given-names: Adam
+    email: adamsc@jhu.edu
+    affiliation: "Biomedical Engineering Department, Johns Hopkins University"
+
+# The Julia implementation in julia/src/ derives from Sai Koukuntla's DLDS
+# package (github.com/saikoukunt/dLDS), which he has licensed GPL v3 for this
+# use. He is credited as the upstream software author in the repository
+# documentation and source headers. The dLDS method is cited in the manuscript
+# as Mudrik et al. 2024.
+
+license: MIT
+repository-code: "https://github.com/YueWan1/social-dLDS"
+version: "0.1.0"
+
+keywords:
+  - behavior
+  - dynamical systems
+  - pose estimation
+  - mouse social behavior
+  - keypoint-MoSeq
+
+preferred-citation:
+  type: article
+  title: >-
+    Decomposed Linear Dynamical Systems (dLDS) reveal interpretable temporal
+    structure in mouse social behavior
+  authors:
+    - family-names: Wan
+      given-names: Yue
+      orcid: "https://orcid.org/0009-0006-1144-0417"
+    - family-names: Aoi
+      given-names: Mikio
+    - family-names: Charles
+      given-names: Adam
+  year: 2026

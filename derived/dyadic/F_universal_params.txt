@@ -1,0 +1,8 @@
+# Paths in this record were relativised to <data_root> for release;
+# nothing else was altered. This file is the provenance record of the
+# published fit and is what attests its hyperparameters.
+source_loso_dir      = <data_root>/dLDS/results/loso_feature27_kp1p0_pose0p5/M15_l1_0.4_smooth_0.15_Flr_2.0_FlrDecay_0.997_decorr_0.1_D27_iter300_snips350
+source_fold_count    = 30
+source_fold_ids      = 001, 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013, 014, 015, 016, 017, 018, 019, 020, 021, 022, 023, 024, 025, 026, 027, 028, 029, 030
+output_F_path        = <data_root>/dLDS/results/loso_feature27_kp1p0_pose0p5/M15_l1_0.4_smooth_0.15_Flr_2.0_FlrDecay_0.997_decorr_0.1_D27_iter300_snips350/analysis/F_universal.npy
+output_F_std_path    = <data_root>/dLDS/results/loso_feature27_kp1p0_pose0p5/M15_l1_0.4_smooth_0.15_Flr_2.0_FlrDecay_0.997_decorr_0.1_D27_iter300_snips350/analysis/F_universal_std.npy

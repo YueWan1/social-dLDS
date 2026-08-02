@@ -1,0 +1,60 @@
+This repository is under more than one licence. Which one applies depends on
+which directory a file is in.
+
+-------------------------------------------------------------------------------
+  julia/                      GNU General Public License v3.0 or later
+-------------------------------------------------------------------------------
+
+The Julia implementation in julia/ derives from Sai Koukuntla's DLDS package
+(https://github.com/saikoukunt/dLDS), released by him under GPL v3. Because it
+is a derivative of GPL-licensed code, julia/ is GPL v3 or later; this is not a
+choice we could make differently. The full licence text is in julia/LICENSE, and
+every file in julia/src/ carries a header recording its provenance and, where it
+was modified, what changed and why.
+
+-------------------------------------------------------------------------------
+  everything else (MIT)       analysis/ features/ figures/ dlds_release/ and root
+-------------------------------------------------------------------------------
+
+The Python code never loads the Julia code. The two halves communicate only
+through .npy files on disk, so they are separate programs distributed together,
+which section 5 of the GPL explicitly permits ("mere aggregation"). The GPL's
+copyleft therefore does not reach this code.
+
+MIT License
+
+Copyright (c) 2026 Yue Wan, Mikio Aoi, Adam Charles
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------------------------
+  derived/ and the Zenodo deposit     Creative Commons Attribution 4.0
+-------------------------------------------------------------------------------
+
+Data artifacts are under CC-BY-4.0: https://creativecommons.org/licenses/by/4.0/
+
+That covers the fitted operator dictionaries and the small tables in derived/,
+and the four bundles of the Zenodo deposit.
+
+One thing it does not settle. The dyadic feature matrices and the cleaned
+keypoints are derived from CalMS21 (CaltechDATA 10.22002/D1.1991), and the
+single-mouse features from the keypoint-MoSeq open-field dataset (Zenodo
+15171335). Redistributing a derivative of someone else's dataset is governed by
+that dataset's terms, not by ours. Confirm both before the deposit is published;
+see docs/DATA_AVAILABILITY.md.

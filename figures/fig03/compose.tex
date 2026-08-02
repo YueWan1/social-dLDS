@@ -1,0 +1,43 @@
+% Figure 3: the four panels of figures/fig03/, stitched and lettered.
+% This is the one main figure that is composed by a script rather than by hand.
+%
+% The panel PDFs must exist first:
+%   python3 figures/fig03/panel_a_shared_space_hero.py
+%   python3 figures/fig03/panels_bc_syllable_subspace.py
+%   bash run_figures.sh fig03
+%
+% Build, FROM THE REPOSITORY ROOT (\graphicspath below is relative to the
+% working directory, not to this file):
+%   pdflatex -interaction=nonstopmode -halt-on-error \
+%       -jobname=fig03_compose \
+%       -output-directory=out/fig03 figures/fig03/compose.tex
+% -> out/fig03/fig03_compose.pdf
+%
+% The path assumes the default out_root (<repo>/out).  If paths.yml
+% redirects out_root elsewhere, point \graphicspath at that directory's fig03/.
+\documentclass[border=0pt]{standalone}
+\usepackage{graphicx}
+\usepackage{tikz}
+\graphicspath{{out/fig03/}}
+
+\begin{document}
+\begin{tikzpicture}[x=1in,y=1in]
+  \path[use as bounding box] (0,0) rectangle (7,7.7);
+
+  \node[anchor=center,inner sep=0] at (2.460,5.505) {%
+    \includegraphics[width=4.620in,height=4.100in,keepaspectratio]{fig3a_shared_space.pdf}};
+  \node[anchor=center,inner sep=0] at (5.880,6.400) {%
+    \includegraphics[width=2.180in,height=2.300in,keepaspectratio]{fig3b_syll21_3d.pdf}};
+  \node[anchor=center,inner sep=0] at (5.880,4.270) {%
+    \includegraphics[width=2.180in,height=1.880in,keepaspectratio]{fig3c_syll21_op2_op6.pdf}};
+  \node[anchor=center,inner sep=0] at (3.518,1.733) {%
+    \includegraphics[width=6.755in,height=3.080in,keepaspectratio]{fig3d_omega_sorted.pdf}};
+
+  \tikzset{panelletter/.style={anchor=north west,inner sep=1.2pt,
+    fill=white,fill opacity=0.92,text opacity=1,font=\sffamily\bfseries\fontsize{10}{10}\selectfont}}
+  \node[panelletter] at (0.243,7.546) {a};
+  \node[panelletter] at (4.770,7.546) {b};
+  \node[panelletter] at (4.770,5.245) {c};
+  \node[panelletter] at (0.396,3.273) {d};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,27 @@
+# Local configuration
+paths.yml
+
+# Regenerated outputs
+out/
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+
+# Downloaded data
+data_root/
+raw_data_root/
+
+# LaTeX build products
+*.aux
+*.log
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# Editor / OS
+.DS_Store
+.vscode/
+
+# Local development records
+_audit/
+_rescued/

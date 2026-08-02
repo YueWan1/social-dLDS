@@ -1,0 +1,26 @@
+# Copy to paths.yml and edit. paths.yml is gitignored.
+#
+# Environment variables override these:
+#   SOCIAL_DLDS_ROOT          -> data_root
+#   SOCIAL_DLDS_RAW_ROOT      -> raw_data_root
+#   SOCIAL_DLDS_RESULTS_ROOT  -> results_root
+#   SOCIAL_DLDS_OUT           -> out_root
+
+# Where the Zenodo derived-artifact bundles are unpacked. The bundles preserve
+# the original analysis layout, so this directory will contain a dLDS/results/
+# subtree. Roughly 650 MB for all four bundles; 105 MB if you only take bundle 1
+# (enough to redraw most figures).
+data_root: /path/to/social-dlds-data
+
+# Third-party public datasets, only needed for a full feature rebuild.
+# Populated by features/fetch_calms21.sh and features/fetch_zenodo_kpms.sh.
+raw_data_root: /path/to/social-dlds-raw
+
+# Model and feature artifacts used by analysis/figure scripts. Leave this
+# commented to read the deposited files at <data_root>/dLDS/results. For a full
+# refit, point it at a separate writable directory so deposited artifacts are
+# not overwritten.
+# results_root: /path/to/social-dlds-work/results
+
+# Regenerated figures and recomputed tables. Safe to delete.
+out_root: ./out

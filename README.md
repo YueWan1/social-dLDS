@@ -78,7 +78,7 @@ Feature matrices can instead be rebuilt from the two public source datasets
 with the commands in step 1. After the required inputs are present, run:
 
 ```bash
-python -m pip install -e '.[moseq]'  # required by three MoSeq panels
+python -m pip install -e '.[moseq]'  # required by three MoSeq-rendering panels
 bash reproduce.sh analysis
 bash reproduce.sh figures
 ```
@@ -87,9 +87,14 @@ Analyses and figures are written under `out/`; tracked values in `derived/`
 remain unchanged. See the [`analysis index`](analysis/README.md) and
 [`figure index`](docs/FIGURE_INDEX.md).
 
+The initial-submission archive does not include the paper's keypoint-MoSeq
+`results.h5` files or cleaned keypoint arrays. Batch commands mark the affected
+tasks as `SKIP` and continue; the exact coverage is listed in
+[`docs/DATA_AVAILABILITY.md`](docs/DATA_AVAILABILITY.md#artifact-coverage).
+
 `features/fetch_derived_bundle.sh` is the versioned-download route for the
-permanent Zenodo release. It requires `SOCIAL_DLDS_ZENODO_RECORD` until the
-record DOI is added.
+permanent Zenodo release, not the initial Google Drive archive. It requires
+`SOCIAL_DLDS_ZENODO_RECORD` once that record is published.
 
 ## Layout
 

@@ -56,6 +56,28 @@ The source records do not currently state a redistribution licence for their
 coordinate data. Their raw data, repackaged feature matrices and cleaned
 keypoints are therefore not included in this public archive.
 
+## Artifact coverage
+
+Two paper-specific input types are not currently distributed:
+
+- the single-mouse and dyadic keypoint-MoSeq `results.h5` files;
+- cleaned CalMS21 arrays (`res_kp.npy` and `kp_clean.npy`).
+
+Their absence does not affect source-data download, FEATURE16/FEATURE27
+construction, the one-session Julia fit, or analyses that use only the
+published dLDS outputs. It affects the following exact-paper tasks:
+
+| Missing input | Affected tasks |
+| --- | --- |
+| Single-mouse `results.h5` | Figure 1c/e/f, Figure 2b, Figure 3, and Supplementary Figures S2–S3 |
+| Dyadic `results.h5` | `analysis/syllable_selectivity.py`, Figure 4b, Figure 6d/e, and Supplementary Figure S9 |
+| Cleaned CalMS21 keypoints | `analysis/f9_foreshortening.py` and Figure 4b |
+
+`reproduce.sh` and `run_figures.sh` report these tasks as `SKIP` when the
+optional inputs are absent and continue with the remaining analyses and panels.
+Selected compact analysis outputs remain in `derived/`. Exact regeneration of
+the tasks in the table requires the corresponding optional inputs.
+
 ## Local paths
 
 Copy `paths.example.yml` to `paths.yml` and set:

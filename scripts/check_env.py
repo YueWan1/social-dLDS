@@ -34,7 +34,8 @@ for mod, dist, why in CORE:
         ok = False
         print("  MISSING %-11s install %-13s (%s) [%s]" % (mod, dist, why, type(exc).__name__))
 
-# Optional: only three panels need it, so its absence is not a failure.
+# Optional: three panels import the package. Other MoSeq-dependent panels read
+# results.h5 directly and are covered by the artifact probes below.
 if importlib.util.find_spec("keypoint_moseq") is not None:
     print("  present keypoint_moseq  (not imported; avoids initializing JAX)")
 else:
@@ -77,7 +78,7 @@ for name, fn in PROBES:
     try:
         print("  OK      %-20s %s" % (name, fn()))
     except FileNotFoundError as exc:
-        hint = [l.strip() for l in str(exc).splitlines() if "obtain it with" in l]
+        hint = [l.strip() for l in str(exc).splitlines() if "next step:" in l]
         print("  absent  %-20s %s" % (name, hint[0] if hint else "not downloaded"))
 print()
 

@@ -3,6 +3,10 @@
 `run_figures.sh` is the executable panel list. Outputs are written under
 `out/`; the table below records how they enter the paper.
 
+Panels that require non-distributed keypoint-MoSeq results or cleaned
+keypoints are reported as `SKIP` rather than failed. Their coverage is listed
+in [`DATA_AVAILABILITY.md`](DATA_AVAILABILITY.md#artifact-coverage).
+
 ```bash
 bash reproduce.sh analysis
 bash reproduce.sh figures

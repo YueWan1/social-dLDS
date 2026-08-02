@@ -90,15 +90,42 @@ _MOSEQ_RUN_DIR = {
     "dyadic": "kpms_repro_calms21/sweep/k3e04",
 }
 
-# Which `make` target fetches what, so a missing file can say how to get it.
+_DRIVE_MODELS = (
+    "https://drive.google.com/file/d/"
+    "1wBcfj0d4gs-eSbJVkumU--NDH6VPbbH8/view?usp=drive_link"
+)
+
+# Concrete next steps for missing inputs. Some paper artifacts cannot currently
+# be redistributed; saying so is preferable to pointing to a nonexistent file.
 _PROVENANCE = {
-    "dyadic_cs": "bash features/fetch_derived_bundle.sh derived   (Zenodo bundle 1: derived model artifacts)",
-    "single_fit": "bash features/fetch_derived_bundle.sh derived   (Zenodo bundle 1)",
-    "moseq_single": "bash features/fetch_derived_bundle.sh moseq     (Zenodo bundle 3: keypoint-MoSeq outputs)",
-    "moseq_dyadic": "bash features/fetch_derived_bundle.sh moseq     (Zenodo bundle 3)",
-    "feature27": "bash features/fetch_derived_bundle.sh features  (Zenodo bundle 2: dLDS feature inputs)",
-    "feature16": "bash features/fetch_derived_bundle.sh features  (Zenodo bundle 2)",
-    "preprocessed": "bash features/fetch_derived_bundle.sh keypoints (Zenodo bundle 4: cleaned CalMS21 keypoints)",
+    "dyadic_cs": (
+        f"download dlds_derived_models.tar.zst from {_DRIVE_MODELS} and extract "
+        "it into data_root (see docs/DATA_AVAILABILITY.md)"
+    ),
+    "single_fit": (
+        f"download dlds_derived_models.tar.zst from {_DRIVE_MODELS} and extract "
+        "it into data_root (see docs/DATA_AVAILABILITY.md)"
+    ),
+    "moseq_single": (
+        "not currently distributed; exact MoSeq-dependent panels require the "
+        "paper results.h5 (see docs/DATA_AVAILABILITY.md)"
+    ),
+    "moseq_dyadic": (
+        "not currently distributed; exact MoSeq-dependent panels require the "
+        "paper results.h5 (see docs/DATA_AVAILABILITY.md)"
+    ),
+    "feature27": (
+        "bash features/fetch_calms21.sh; bash reproduce.sh convert-calms21; "
+        "bash reproduce.sh features-dyadic"
+    ),
+    "feature16": (
+        "bash features/fetch_zenodo_kpms.sh; "
+        "bash reproduce.sh features-single"
+    ),
+    "preprocessed": (
+        "not currently distributed; cleaned-keypoint tasks are skipped "
+        "(see docs/DATA_AVAILABILITY.md)"
+    ),
 }
 
 
@@ -166,7 +193,7 @@ def require(path: Path, what: str = "") -> Path:
         f"  results root     = {RESULTS_ROOT}",
     ]
     if hint:
-        lines.append(f"  obtain it with:  {hint}")
+        lines.append(f"  next step:         {hint}")
     if not ROOT.exists():
         lines.append(
             "  ROOT itself does not exist. Set it in paths.yml "

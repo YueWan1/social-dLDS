@@ -26,6 +26,20 @@ configure_matplotlib() {
     mkdir -p "$MPLCONFIGDIR"
 }
 
+optional_available() {
+    "$PYTHON" scripts/check_optional_input.py "$1" >/dev/null 2>&1
+}
+
+run_optional() {
+    local artifact="$1"
+    shift
+    if optional_available "$artifact"; then
+        "$PYTHON" "$@"
+    else
+        echo "--- SKIP $1 (optional artifact '$artifact' is not distributed; see docs/DATA_AVAILABILITY.md)"
+    fi
+}
+
 usage() {
     cat <<'EOF'
 social-dLDS reproduction workflow
@@ -94,9 +108,9 @@ case "$target" in
         "$PYTHON" figures/supp/s6_pose_readout.py
         "$PYTHON" figures/supp/s6_geometry_readout.py
         "$PYTHON" analysis/f4_distance_deciles.py
-        "$PYTHON" analysis/f9_foreshortening.py
+        run_optional preprocessed_res_kp analysis/f9_foreshortening.py
         "$PYTHON" analysis/signed_selectivity.py
-        "$PYTHON" analysis/syllable_selectivity.py
+        run_optional moseq_dyadic analysis/syllable_selectivity.py
         "$PYTHON" analysis/geometry_gating.py
         "$PYTHON" analysis/loso_stability.py
         ;;

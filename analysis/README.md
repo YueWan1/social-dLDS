@@ -19,8 +19,13 @@ Run all analyses from the repository root:
 bash reproduce.sh analysis
 ```
 
-Regenerated files are written to `out/analysis/`. The tracked copies under
-`derived/` contain the values used for the paper figures.
+Regenerated files are written to `out/analysis/`. Selected compact outputs used
+by the paper figures are tracked under `derived/`.
+
+The batch command skips `f9_foreshortening.py` and
+`syllable_selectivity.py` when their optional cleaned-keypoint or
+keypoint-MoSeq inputs are absent. See
+[`docs/DATA_AVAILABILITY.md`](../docs/DATA_AVAILABILITY.md#artifact-coverage).
 
 ## Conventions
 

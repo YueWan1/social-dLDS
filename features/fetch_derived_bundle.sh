@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 #
-# Download fitted models, feature matrices, keypoint-MoSeq outputs, and cleaned
-# CalMS21 keypoints from the companion Zenodo record.
+# Download versioned companion files from the permanent Zenodo record.
+#
+# For the initial submission, only the dLDS model archive is public, through
+# the link in docs/DATA_AVAILABILITY.md. The other names below are reserved for
+# a future record version; they are not promises that those files exist today.
 #
 # Usage:
 #   bash features/fetch_derived_bundle.sh derived
@@ -36,6 +39,11 @@ usage: fetch_derived_bundle.sh {derived|features|moseq|keypoints|all} [options]
 
   --dry-run           list what would be downloaded, download nothing
   --dest DIR          override the destination data root
+
+Initial-submission availability:
+  derived             public through the link in docs/DATA_AVAILABILITY.md
+  features            rebuild from the two public source datasets
+  moseq, keypoints    not currently distributed
 EOF
         exit 2
         ;;
@@ -56,9 +64,14 @@ DEST="$(resolve_dest)"
 if [ -z "$ZENODO_RECORD" ]; then
     cat >&2 <<EOF
 No companion Zenodo record is configured.
-Run:
+For the initial-submission model archive, use the link and checksum in:
 
-  SOCIAL_DLDS_ZENODO_RECORD=<id> bash features/fetch_derived_bundle.sh $BUNDLE
+  docs/DATA_AVAILABILITY.md
+
+Once a permanent record is published, run:
+
+  SOCIAL_DLDS_ZENODO_RECORD=<id> \
+    bash features/fetch_derived_bundle.sh $BUNDLE
 EOF
     exit 1
 fi
